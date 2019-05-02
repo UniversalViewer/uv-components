@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "@stencil/core": "0.18.0",
-    "@types/three": "^0.103.2",
     "typescript": "3.4.3"
   },
   "license": "MIT"
