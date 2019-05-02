@@ -1,0 +1,31 @@
+{
+  "name": "iiif-metadata",
+  "version": "0.0.1",
+  "description": "Stencil Component Starter",
+  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "unpkg": "dist/ionic.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "build:dev": "stencil build --dev",
+    "start": "stencil build --dev --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@iiif/manifold": "2.0.0-pre.14",
+    "manifesto.js": "4.0.0-pre.7"
+  },
+  "devDependencies": {
+    "@stencil/core": "0.18.0",
+    "@types/three": "^0.103.2",
+    "typescript": "3.4.3"
+  },
+  "license": "MIT"
+}
