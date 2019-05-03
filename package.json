@@ -23,8 +23,7 @@
     "manifesto.js": "4.0.0-pre.7"
   },
   "devDependencies": {
-    "@stencil/core": "0.18.0",
-    "typescript": "3.4.3"
+    "@stencil/core": "0.18.0"
   },
   "license": "MIT"
 }
