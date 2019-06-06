@@ -1,4 +1,5 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, State } from '@stencil/core';
+import { MetadataGroup } from '@iiif/manifold';
 
 @Component({
   tag: 'iiif-metadata',
@@ -35,6 +36,8 @@ export class IIIFMetadata {
 
   */
 
+ @State() metadataGroups: MetadataGroup[] = [];
+
   /**
    * The IIIF manifest
    */
@@ -42,22 +45,32 @@ export class IIIFMetadata {
 
   componentDidLoad() {
 
-    var locale = manifesto.Utils.getInexactLocale("en-GB");
+    //var locale = manifesto.Utils.getInexactLocale("en-GB");
 
-    console.log(locale);
+    const options: manifold.MetadataOptions = {
+      canvases: null,
+      licenseFormatter: null,
+      range: null
+    } as manifold.MetadataOptions;
 
     manifold.loadManifest({
       manifestUri: this.manifest
-    }).then(function (helper) {
+    }).then((helper) => {
 
-      console.log(helper);
+      this.metadataGroups = helper.getMetadata(options);
 
-    }).catch(function (e) {
+    }).catch((e) => {
         console.error(e);
     });
   }
 
   render() {
-    return <div>Manifest URL: { this.manifest }</div>;
+    if (!this.metadataGroups.length) {
+      return <span>nothing to show!</span>;
+    } else {
+      return Array.from(this.metadataGroups).map((g: MetadataGroup) => {
+        return <div>{g.resource.id}</div>;
+      });
+    }
   }
 }

@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@iiif/manifold": "2.0.0-pre.14",
-    "manifesto.js": "4.0.0-pre.7"
+    "manifesto.js": "4.0.0-pre.8"
   },
   "devDependencies": {
     "@stencil/core": "0.18.0"
