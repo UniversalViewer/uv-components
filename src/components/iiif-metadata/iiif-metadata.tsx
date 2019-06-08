@@ -68,7 +68,7 @@ export class IIIFMetadata {
     if (!this.metadataGroups.length) {
       return <span>nothing to show!</span>;
     } else {
-      return Array.from(this.metadataGroups).map((g: MetadataGroup) => {
+      return this.metadataGroups.map((g: MetadataGroup) => {
         return <div>{g.resource.id}</div>;
       });
     }
