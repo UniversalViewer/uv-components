@@ -1,29 +1,38 @@
 {
-  "name": "iiif-metadata",
+  "name": "@universalviewer/uv-info-panel",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
-  "module": "dist/esm/index.js",
   "main": "dist/index.js",
-  "unpkg": "dist/ionic.js",
-  "types": "dist/types/components.d.ts",
+  "module": "dist/index.mjs",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/uv-info-panel/uv-info-panel.js",
   "files": [
-    "dist/"
+    "dist/",
+    "loader/"
   ],
   "scripts": {
+    "lint:all": "prettier --write \"./src/**/*.{js,jsx,json,css,ts,tsx}\" \"!./src/assets/* \"",
+    "build:dev": "npm run lint:all && stencil build --dev",
     "build": "stencil build --docs",
-    "build:dev": "stencil build --dev",
-    "start": "stencil build --dev --serve",
+    "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
+    "netlify": "netlify deploy --dir=www --prod",
     "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@stencil/core": "1.0.7",
+    "prettier": "^1.18.2",
+    "prettier-check": "^2.0.0",
+    "tslint": "^5.17.0"
   },
   "dependencies": {
     "@iiif/manifold": "2.0.0-pre.14",
     "manifesto.js": "4.0.0-pre.8"
-  },
-  "devDependencies": {
-    "@stencil/core": "0.18.0"
   },
   "license": "MIT"
 }

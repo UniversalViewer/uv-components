@@ -5,58 +5,51 @@
  */
 
 
-import '@stencil/core';
-
-
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-
-  interface IiifMetadata {
+  interface UvInfoPanel {
     /**
     * The IIIF manifest
     */
     'manifest': string;
   }
-  interface IiifMetadataAttributes extends StencilHTMLAttributes {
+}
+
+declare global {
+
+
+  interface HTMLUvInfoPanelElement extends Components.UvInfoPanel, HTMLStencilElement {}
+  var HTMLUvInfoPanelElement: {
+    prototype: HTMLUvInfoPanelElement;
+    new (): HTMLUvInfoPanelElement;
+  };
+  interface HTMLElementTagNameMap {
+    'uv-info-panel': HTMLUvInfoPanelElement;
+  }
+}
+
+declare namespace LocalJSX {
+  interface UvInfoPanel extends JSXBase.HTMLAttributes<HTMLUvInfoPanelElement> {
     /**
     * The IIIF manifest
     */
     'manifest'?: string;
   }
+
+  interface IntrinsicElements {
+    'uv-info-panel': UvInfoPanel;
+  }
 }
 
-declare global {
-  interface StencilElementInterfaces {
-    'IiifMetadata': Components.IiifMetadata;
-  }
-
-  interface StencilIntrinsicElements {
-    'iiif-metadata': Components.IiifMetadataAttributes;
-  }
+export { LocalJSX as JSX };
 
 
-  interface HTMLIiifMetadataElement extends Components.IiifMetadata, HTMLStencilElement {}
-  var HTMLIiifMetadataElement: {
-    prototype: HTMLIiifMetadataElement;
-    new (): HTMLIiifMetadataElement;
-  };
-
-  interface HTMLElementTagNameMap {
-    'iiif-metadata': HTMLIiifMetadataElement
-  }
-
-  interface ElementTagNameMap {
-    'iiif-metadata': HTMLIiifMetadataElement;
-  }
-
-
+declare module "@stencil/core" {
   export namespace JSX {
-    export interface Element {}
-    export interface IntrinsicElements extends StencilIntrinsicElements {
-      [tagName: string]: any;
-    }
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
   }
-  export interface HTMLAttributes extends StencilHTMLAttributes {}
-
 }
+
+

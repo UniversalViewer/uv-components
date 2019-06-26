@@ -1,12 +1,12 @@
-import { Component, Prop, State } from '@stencil/core';
+import { Component, h, Prop, State } from '@stencil/core';
 import { MetadataGroup } from '@iiif/manifold';
 
 @Component({
-  tag: 'iiif-metadata',
-  styleUrl: 'iiif-metadata.css',
+  tag: 'uv-info-panel',
+  styleUrl: 'uv-info-panel.css',
   shadow: true
 })
-export class IIIFMetadata {
+export class UVInfoPanel {
 
   /*
 
