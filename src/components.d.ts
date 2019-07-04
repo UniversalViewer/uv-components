@@ -6,14 +6,14 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  MetadataGroup,
+} from './MetadataGroup';
 
 export namespace Components {
   interface UvInfoPanel {
-    /**
-    * The IIIF manifest
-    */
     'manifest': string;
+    'metadataGroups': MetadataGroup[];
   }
 }
 
@@ -32,10 +32,8 @@ declare global {
 
 declare namespace LocalJSX {
   interface UvInfoPanel extends JSXBase.HTMLAttributes<HTMLUvInfoPanelElement> {
-    /**
-    * The IIIF manifest
-    */
     'manifest'?: string;
+    'metadataGroups'?: MetadataGroup[];
   }
 
   interface IntrinsicElements {

@@ -1,5 +1,8 @@
-import { Component, h, Prop, State } from '@stencil/core';
-import { MetadataGroup } from '@iiif/manifold';
+import { Component, h, Prop, Element } from '@stencil/core';
+import { MetadataGroup } from '../../MetadataGroup';
+import { getLocaleComponentStrings } from '../../utils/locale';
+import { ContentStrings } from '../../ContentStrings';
+
 
 @Component({
   tag: 'uv-info-panel',
@@ -7,6 +10,9 @@ import { MetadataGroup } from '@iiif/manifold';
   shadow: true
 })
 export class UVInfoPanel {
+
+  @Element() element: HTMLElement;
+  strings: ContentStrings;
 
   /*
 
@@ -36,32 +42,22 @@ export class UVInfoPanel {
 
   */
 
- @State() metadataGroups: MetadataGroup[] = [];
+  @Prop() metadataGroups: MetadataGroup[] = [];
 
-  /**
-   * The IIIF manifest
-   */
   @Prop() manifest: string;
 
-  componentDidLoad() {
+  async componentWillLoad(): Promise<void> {
+    this.strings = await getLocaleComponentStrings(this.element);
+  }
 
-    //var locale = manifesto.Utils.getInexactLocale("en-GB");
+  private _renderMetadataGroup(metadataGroup: MetadataGroup) {
 
-    const options: manifold.MetadataOptions = {
-      canvases: null,
-      licenseFormatter: null,
-      range: null
-    } as manifold.MetadataOptions;
-
-    manifold.loadManifest({
-      manifestUri: this.manifest
-    }).then((helper) => {
-
-      this.metadataGroups = helper.getMetadata(options);
-
-    }).catch((e) => {
-        console.error(e);
-    });
+    return (
+      <div class="group">
+        <div class="header">{this.strings.metadataItemHeader}</div>
+        <div class="items">{metadataGroup.id}</div>
+      </div>
+    );
   }
 
   render() {
@@ -69,7 +65,7 @@ export class UVInfoPanel {
       return <span>nothing to show!</span>;
     } else {
       return this.metadataGroups.map((g: MetadataGroup) => {
-        return <div>{g.resource.id}</div>;
+        return this._renderMetadataGroup(g.resource);
       });
     }
   }

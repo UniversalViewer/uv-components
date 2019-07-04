@@ -8,11 +8,29 @@
   <script src="https://unpkg.com/@iiif/manifold@2.0.0-pre.14/dist-umd/manifold.js"></script>
   <script type="module" src="/build/uv-info-panel.esm.js"></script>
   <script nomodule src="/build/uv-info-panel.js"></script>
-
+  <script src="https://unpkg.com/element-closest/browser"></script>
 </head>
 <body>
 
-  <uv-info-panel manifest="https://digital.library.villanova.edu/Item/vudl:24299/Manifest"></uv-info-panel>
+  <uv-info-panel id="info-panel" lang="de"></uv-info-panel>
+
+  <script>
+    const options = {
+      canvases: null,
+      licenseFormatter: null,
+      range: null
+    };
+
+    manifold.loadManifest({
+      manifestUri: "https://digital.library.villanova.edu/Item/vudl:24299/Manifest"
+    }).then((helper) => {
+      const metadataGroups = helper.getMetadata(options);
+      const infoPanel = document.getElementById("info-panel");
+      infoPanel.metadataGroups = metadataGroups;
+    }).catch((e) => {
+        console.error(e);
+    });
+  </script>
 
 </body>
 </html>
