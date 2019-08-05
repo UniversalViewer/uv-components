@@ -14,6 +14,10 @@ export namespace Components {
   interface UvInfoPanel {
     'manifest': string;
     'metadataGroups': MetadataGroup[];
+    'showAllLanguages': boolean;
+  }
+  interface UvMetadataGroup {
+    'metadata': MetadataGroup;
   }
 }
 
@@ -25,8 +29,15 @@ declare global {
     prototype: HTMLUvInfoPanelElement;
     new (): HTMLUvInfoPanelElement;
   };
+
+  interface HTMLUvMetadataGroupElement extends Components.UvMetadataGroup, HTMLStencilElement {}
+  var HTMLUvMetadataGroupElement: {
+    prototype: HTMLUvMetadataGroupElement;
+    new (): HTMLUvMetadataGroupElement;
+  };
   interface HTMLElementTagNameMap {
     'uv-info-panel': HTMLUvInfoPanelElement;
+    'uv-metadata-group': HTMLUvMetadataGroupElement;
   }
 }
 
@@ -34,10 +45,15 @@ declare namespace LocalJSX {
   interface UvInfoPanel extends JSXBase.HTMLAttributes<HTMLUvInfoPanelElement> {
     'manifest'?: string;
     'metadataGroups'?: MetadataGroup[];
+    'showAllLanguages'?: boolean;
+  }
+  interface UvMetadataGroup extends JSXBase.HTMLAttributes<HTMLUvMetadataGroupElement> {
+    'metadata'?: MetadataGroup;
   }
 
   interface IntrinsicElements {
     'uv-info-panel': UvInfoPanel;
+    'uv-metadata-group': UvMetadataGroup;
   }
 }
 

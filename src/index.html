@@ -12,7 +12,9 @@
 </head>
 <body>
 
-  <uv-info-panel id="info-panel" lang="de"></uv-info-panel>
+  <uv-info-panel id="info-panel"
+    lang="en"
+    show-all-languages="false"></uv-info-panel>
 
   <script>
     const options = {
@@ -28,7 +30,7 @@
       const infoPanel = document.getElementById("info-panel");
       infoPanel.metadataGroups = metadataGroups;
     }).catch((e) => {
-        console.error(e);
+      console.error(e);
     });
   </script>
 

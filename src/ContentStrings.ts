@@ -1,3 +1,4 @@
 export interface ContentStrings {
-  metadataItemHeader: string;
+  metadataItemHeader?: string;
+  nothingToShow?: string;
 }

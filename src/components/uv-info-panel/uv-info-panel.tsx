@@ -3,7 +3,6 @@ import { MetadataGroup } from '../../MetadataGroup';
 import { getLocaleComponentStrings } from '../../utils/locale';
 import { ContentStrings } from '../../ContentStrings';
 
-
 @Component({
   tag: 'uv-info-panel',
   styleUrl: 'uv-info-panel.css',
@@ -43,29 +42,23 @@ export class UVInfoPanel {
   */
 
   @Prop() metadataGroups: MetadataGroup[] = [];
-
+  @Prop() showAllLanguages: boolean = false;
   @Prop() manifest: string;
+
+  metadataGroup: MetadataGroup = {
+    id: "test id"
+  };
 
   async componentWillLoad(): Promise<void> {
     this.strings = await getLocaleComponentStrings(this.element);
   }
 
-  private _renderMetadataGroup(metadataGroup: MetadataGroup) {
-
-    return (
-      <div class="group">
-        <div class="header">{this.strings.metadataItemHeader}</div>
-        <div class="items">{metadataGroup.id}</div>
-      </div>
-    );
-  }
-
   render() {
     if (!this.metadataGroups.length) {
-      return <span>nothing to show!</span>;
+      return <span>{this.strings.nothingToShow}</span>;
     } else {
       return this.metadataGroups.map((g: MetadataGroup) => {
-        return this._renderMetadataGroup(g.resource);
+        return <uv-metadata-group metadata={g}></uv-metadata-group>;
       });
     }
   }

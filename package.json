@@ -6,7 +6,7 @@
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/uv-info-panel/uv-info-panel.js",
@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "lint:all": "prettier --write \"./src/**/*.{js,jsx,json,css,ts,tsx}\" \"!./src/assets/* \"",
-    "build:dev": "npm run lint:all && stencil build --dev",
+    "build:dev": "stencil build --dev",
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
