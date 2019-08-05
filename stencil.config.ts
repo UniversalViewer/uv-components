@@ -18,5 +18,6 @@ export const config: Config = {
   copy: [{
     src: "**/*.i18n.*.json",
     dest: "i18n"
-  }]
+  }],
+  globalStyle: 'src/global/theme.css'
 };

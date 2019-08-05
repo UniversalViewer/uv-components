@@ -57,9 +57,15 @@ export class UVInfoPanel {
     if (!this.metadataGroups.length) {
       return <span>{this.strings.nothingToShow}</span>;
     } else {
-      return this.metadataGroups.map((g: MetadataGroup) => {
-        return <uv-metadata-group metadata={g}></uv-metadata-group>;
-      });
+      return (
+        <div id="uv-info-panel">
+          {
+            this.metadataGroups.map((g: MetadataGroup) => {
+              return <uv-metadata-group metadata={g}></uv-metadata-group>;
+            })
+          }
+        </div>
+      )
     }
   }
 }
