@@ -20,12 +20,16 @@ export class UVMetadataGroup {
   }
 
   render() {
-    console.log(this.metadata);
+    //console.log(this.metadata);
+    var items = [];
+    for (var i = 0; i < this.metadata.items.length; i++) {
+      items[items.length] = <uv-metadata-item label={this.metadata.items[i].label} value={this.metadata.items[i].value} />;
+    }
     return (
       <div class="group">
         <div class="header">{this.strings.metadataItemHeader}</div>
         {/* <div class="items">{this.metadataGroupId}</div> */}
-        <div class="items">{this.metadata.resource.id}</div>
+        <div class="items">{items}</div>
       </div>
     )
   }
