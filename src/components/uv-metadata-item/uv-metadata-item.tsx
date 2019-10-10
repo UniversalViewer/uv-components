@@ -15,13 +15,12 @@ export class UVMetadataItem {
   @Prop() label: manifesto.LanguageMap;
   @Prop() value: manifesto.LanguageMap;
 /*
+  // TODO: remove or fix
   async componentWillLoad(): Promise<void> {
     this.strings = await getLocaleComponentStrings(this.element);
   }
 */
   render() {
-    // var label = "Foo"; //this.label;
-    // var value = "Bar"; //this.value;
     return (
         <div class="item">
           <div class="label">{manifesto.LanguageMap.getValue(this.label, "en")}</div>
