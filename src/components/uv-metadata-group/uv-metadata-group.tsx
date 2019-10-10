@@ -20,11 +20,9 @@ export class UVMetadataGroup {
   }
 
   render() {
-    //console.log(this.metadata);
     return (
       <div class="group">
         <div class="header">{this.strings.metadataItemHeader}</div>
-        {/* <div class="items">{this.metadataGroupId}</div> */}
         <div class="items">{
           (() => {
             return this.metadata.items.map((item: manifesto.LabelValuePair) => {
