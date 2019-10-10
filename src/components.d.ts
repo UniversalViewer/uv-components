@@ -20,8 +20,8 @@ export namespace Components {
     'metadata': MetadataGroup;
   }
   interface UvMetadataItem {
-    'label': string;
-    'value': string;
+    'label': manifesto.LanguageMap;
+    'value': manifesto.LanguageMap;
   }
 }
 
@@ -62,8 +62,8 @@ declare namespace LocalJSX {
     'metadata'?: MetadataGroup;
   }
   interface UvMetadataItem extends JSXBase.HTMLAttributes<HTMLUvMetadataItemElement> {
-    'label'?: string;
-    'value'?: string;
+    'label'?: manifesto.LanguageMap;
+    'value'?: manifesto.LanguageMap;
   }
 
   interface IntrinsicElements {

@@ -12,21 +12,20 @@ export class UVMetadataItem {
   @Element() element: HTMLElement;
   strings: ContentStrings;
 
-  @Prop() label: string;
-  @Prop() value: string;
-
+  @Prop() label: manifesto.LanguageMap;
+  @Prop() value: manifesto.LanguageMap;
+/*
   async componentWillLoad(): Promise<void> {
     this.strings = await getLocaleComponentStrings(this.element);
   }
-
+*/
   render() {
-    console.log(this.label, this.value);
-    var label = this.label;
-    var value = this.value;
+    // var label = "Foo"; //this.label;
+    // var value = "Bar"; //this.value;
     return (
         <div class="item">
-          <div class="label">{label}</div>
-          <div class="values">{value}</div>
+          <div class="label">{manifesto.LanguageMap.getValue(this.label, "en")}</div>
+          <div class="value">{manifesto.LanguageMap.getValue(this.value, "en")}</div>
         </div>
     );
   }
