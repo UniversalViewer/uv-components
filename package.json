@@ -25,14 +25,16 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@stencil/core": "1.0.7",
+    "@stencil/core": "1.3.0",
     "prettier": "^1.18.2",
     "prettier-check": "^2.0.0",
     "tslint": "^5.17.0"
   },
   "dependencies": {
-    "@iiif/manifold": "2.0.0-pre.14",
-    "manifesto.js": "4.0.0-pre.8"
+    "@iiif/manifold": "2.0.0-pre.19",
+    "@iiif/vocabulary": "1.0.10",
+    "@types/node": "^12.7.12",
+    "manifesto.js": "4.0.0-pre.17"
   },
   "license": "MIT"
 }

@@ -1,0 +1,6 @@
+.item .label {
+    font-weight: bold;
+}
+.item .value {
+    border-bottom: 1px solid black;
+}
