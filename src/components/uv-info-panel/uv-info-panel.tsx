@@ -1,11 +1,11 @@
-import { Component, h, Prop, Element } from '@stencil/core';
-import { MetadataGroup } from '../../MetadataGroup';
-import { getLocaleComponentStrings } from '../../utils/locale';
-import { ContentStrings } from '../../ContentStrings';
+import { Component, h, Prop, Element } from "@stencil/core";
+import { MetadataGroup } from "../../MetadataGroup";
+import { getLocaleComponentStrings } from "../../utils/locale";
+import { ContentStrings } from "../../ContentStrings";
 
 @Component({
-  tag: 'uv-info-panel',
-  styleUrl: 'uv-info-panel.css',
+  tag: "uv-info-panel",
+  styleUrl: "uv-info-panel.css",
   shadow: true
 })
 export class UVInfoPanel {
@@ -53,7 +53,7 @@ export class UVInfoPanel {
     this.strings = await getLocaleComponentStrings(this.element);
   }
 
-  render() {
+  render(): void {
     if (!this.metadataGroups.length) {
       return <span>{this.strings.nothingToShow}</span>;
     } else {
@@ -65,7 +65,7 @@ export class UVInfoPanel {
             })
           }
         </div>
-      )
+      );
     }
   }
 }

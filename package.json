@@ -1,5 +1,5 @@
 {
-  "name": "@universalviewer/uv-info-panel",
+  "name": "@universalviewer/uv-components",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/uv-info-panel/uv-info-panel.js",
+  "unpkg": "dist/uv-components/uv-components.js",
   "files": [
     "dist/",
     "loader/"
